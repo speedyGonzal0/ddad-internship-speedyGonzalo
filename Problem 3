@@ -1,0 +1,29 @@
+import java.util.*;
+public class Problem3 {
+    public static boolean palindromeCheck(String pal){      
+      if(pal.length() == 0 || pal.length() == 1){
+        return true;
+      }
+      else if(pal.charAt(0) == pal.charAt(pal.length() - 1)){
+        return palindromeCheck(pal.substring(1, pal.length()-1));
+      }
+      return false;
+    }
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        String pal = input.nextLine().toLowerCase();
+        String id = "";
+      	if(pal.length() % 2 == 0){
+          id = "Even ";
+        }
+      	else{
+          id = "Odd ";
+        }
+        if(palindromeCheck(pal) == true){
+          System.out.println(id+"Palindrome");
+        }   
+      	else{
+          System.out.println("Not a Palindrome");
+        }
+    }
+}
